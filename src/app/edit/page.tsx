@@ -63,7 +63,7 @@ export default async function Page({
         return (
             <h1>
                 <p>{error_msg}</p>
-                <p>can't find task</p>
+                <p>cannot find task</p>
             </h1>
         );
     }
