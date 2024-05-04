@@ -1,6 +1,7 @@
 "use server";
 import { prisma } from "@/db";
 
+//Toggle the complete status of a task
 export async function handleComplteToggleClick(id: string) {
   "use server";
   const task = await prisma.task.findUnique({
@@ -14,6 +15,7 @@ export async function handleComplteToggleClick(id: string) {
   }
 }
 
+//Delete a task
 export async function handleDeleteClick(id: string) {
   "use server";
   await prisma.task.delete({

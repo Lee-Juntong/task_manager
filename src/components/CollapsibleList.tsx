@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Task } from '@prisma/client';
 import { taskList } from '@/app/taskList';
 
-
+//Takes in the list name and the list of tasks
+//Returns a collapsible list where the user can toggle the display of the list
 export function CollapsibleList({ listName, tasks }: { listName: string, tasks: Task[] }) {
     const [show, setShow] = useState(false)
     const handleDisplayToggle = () => {

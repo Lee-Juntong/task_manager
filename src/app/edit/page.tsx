@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 
 const error_msg = "Task not found! You are not entering this page the right way!"
 
+//Update a task based on user input
+//After updating the task, redirect to the home page
 async function updateTask(id: string, data: FormData) {
     "use server"
     const title = data.get("title")?.valueOf();
@@ -31,7 +33,7 @@ async function findTask(id: string) {
     })
 }
 
-//func must be a function, taking str and FormData as arguments
+//Func must be a function, taking str and FormData as arguments
 async function actionWrapper(str: string, func: any) {
     "use server"
     return async function (formData: FormData): Promise<void> {
@@ -48,6 +50,8 @@ export default async function Page({
 
     const id = searchParams?.id
 
+    //Error handling
+    //Consider a few exceptional cases relating to id 
     if (typeof id !== "string") {
         return (
             <h1>
@@ -109,7 +113,7 @@ t                <p>This task is not created properly as due date is missing.</p
                     defaultValue={current_task.description}
                 />
                 <input
-                    //the format shown in the date input field is left as default, so it will be depending on the user's browser/system settings
+                    //The format shown in the date input field is left as default, so it will be depending on the user's browser/system settings
                     type="date"
                     name="dueDate"
                     max="2100-12-31"

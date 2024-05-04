@@ -1,8 +1,9 @@
 import { prisma } from "@/db";
 import Link from "next/link";
 import { CollapsibleList } from "@/components/CollapsibleList";
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import { Task } from "@prisma/client";
+
+//Force vercel to read changes
+//We do not need these if deployed locally
 export const dynamic = 'force-dynamic'
 export const fetchCache = 'force-no-store'
 
@@ -10,19 +11,12 @@ function gettasks() {
   return prisma.task.findMany()
 }
 
-//if a is before b, return negative
+//If a is before b, return negative
 function dateCompare(a: Date, b: Date) {
   const dateA = a.getTime()
   const dateB = b.getTime()
   return dateA - dateB
 }
-
-// export const getServerSideProps = (async () => {
-//   // Fetch data from external API
-//   const tasks = await gettasks()
-//   // Pass data to the page via props
-//   return { props: { tasks } }
-// }) satisfies GetServerSideProps<{ tasks: Task[] }>
 
 export default async function Home() {
 
@@ -34,7 +28,6 @@ export default async function Home() {
   const upcomingTasks = sortedTasks.filter((task) => (!task.complete && (dateCompare(task.dueDate, new Date()) >= 0)))
 
   return (
-
     <>
       <header style={{ fontSize: '2rem', fontFamily: 'Cursive' }} className="flex justify-between items-center mb-4">
         <h1 style={{ fontSize: '3rem' }}>Task Manager</h1>

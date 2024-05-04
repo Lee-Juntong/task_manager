@@ -13,6 +13,9 @@ type TaskItemProps = {
     handleDeleteClick: (id: string) => void
 }
 
+//Renders a single task item
+//Allow the user to toggle the display of the description, mark the task as complete, delete the task, and edit the task
+//States are used for real time client side rendering
 export function TaskItem({ id, title, description, dueDate, complete, handleComplteToggleClick, handleDeleteClick }: TaskItemProps) {
     //states
     const [showDescription, setShowDescription] = useState(false)
@@ -42,8 +45,8 @@ export function TaskItem({ id, title, description, dueDate, complete, handleComp
         setConfirming(true)
     }
 
-    //this is done at client side as it's not affecting the database yet
-    //the update is done in the edit page, which is server side
+    //This is done at client side as it's not affecting the database yet
+    //The update is done in the edit page, which is server side
     const router = useRouter()
     const handleEditClick = () => {
         router.push(`/edit?id=${id}`)
@@ -89,7 +92,6 @@ export function TaskItem({ id, title, description, dueDate, complete, handleComp
                     <button
                         className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
                         onClick={handleEditClick}
-                    // href={{ pathname: '/edit', query: { id } }}
                     >
                         Edit
                     </button>

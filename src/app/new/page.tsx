@@ -2,9 +2,10 @@ import { prisma } from "@/db";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
+//Create a new task based on user input
+//After creating the task, redirect to the home page
 async function createtask(data: FormData) {
     "use server"
-
     const title = data.get("title")?.valueOf();
     const description = (data.get("description")?.valueOf() || "").toString() // use toString() to ensure description is always a string
     const dueDateString = (data.get("dueDate")?.valueOf() || "").toString()
@@ -30,8 +31,8 @@ export default function Page() {
     
     return (
         <>
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-2xl">New</h1>
+            <header style={{ fontSize: '1.5rem', fontFamily: 'Cursive' }} className="flex justify-between items-center mb-4">
+                <h1 className="text-2xl">New Task</h1>
             </header>
             <form action={createtask} className="flex gap-2 flex-col">
 
@@ -54,7 +55,6 @@ export default function Page() {
                     name="dueDate"
                     max="2100-12-31"
                     min="2000-01-01"
-                    //defaultValue={today}
                     className="border border-slate-300 bg-transparent rounded px-2 py-1 outline-none focus-within:border-slate-100"
                     required
                 />

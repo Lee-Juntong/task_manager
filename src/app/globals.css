@@ -4,7 +4,6 @@
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: white;
-    /* Set your desired background color */
 }
 
 .alert-shown {
