@@ -1,7 +1,9 @@
 import { prisma } from "@/db";
 import Link from "next/link";
 import { CollapsibleList } from "@/components/CollapsibleList";
-
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import { Task } from "@prisma/client";
+export const dynamic = 'force-dynamic'
 export const fetchCache = 'force-no-store'
 
 function gettasks() {
@@ -15,6 +17,12 @@ function dateCompare(a: Date, b: Date) {
   return dateA - dateB
 }
 
+// export const getServerSideProps = (async () => {
+//   // Fetch data from external API
+//   const tasks = await gettasks()
+//   // Pass data to the page via props
+//   return { props: { tasks } }
+// }) satisfies GetServerSideProps<{ tasks: Task[] }>
 
 export default async function Home() {
 
