@@ -2,11 +2,11 @@ import { prisma } from "@/db";
 import Link from "next/link";
 import { CollapsibleList } from "@/components/CollapsibleList";
 
+export const fetchCache = 'force-no-store'
+
 function gettasks() {
   return prisma.task.findMany()
 }
-
-
 
 //if a is before b, return negative
 function dateCompare(a: Date, b: Date) {
