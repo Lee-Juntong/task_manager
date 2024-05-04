@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+This is a Task Mangement app with Create, Read, Update and Delete features, combined with some designs for aesthetic purposes.
+
+A demo of this project can be found here: https://youtu.be/yW1DhQS91_4?si=2rYe5zIypwJwQ3ou
 # Before Start
 Download and install node.js from here
 https://nodejs.org/en/download
