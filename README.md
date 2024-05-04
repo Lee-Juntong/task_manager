@@ -8,9 +8,10 @@ After installed nodejs, install the dependency with the following commands.
 ```bash
 npm install next
 ```
-## Getting Started
+## Getting Started Locally
+Clone this repo to a local folder. Run the later command in a terminal openning in this folder.
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
@@ -27,7 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 By doing so, you can run it locally. If you see code marked error in your Editor, try install relevant extensions.
 
 ## Deployment on Vercel
-https://task-manager-henna-theta.vercel.app/
+This is the online deployment. https://task-manager-henna-theta.vercel.app/
 
 ## Funcionalities
 ### New Task
